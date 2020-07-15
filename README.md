@@ -2,6 +2,11 @@
 
 Call a function (from a shared library, in C) from C#, F# or OCaml
 
+## Requirements
+
+- .NET Core SDK 3.1 or later
+- OCaml 4.08 or later
+
 ## Build
 
 ```bash
