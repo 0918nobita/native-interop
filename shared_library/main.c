@@ -1,6 +1,6 @@
 #include "mylib.h"
 
-void main()
-{
+int main(void) {
     my_func();
+    return 0;
 }
