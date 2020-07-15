@@ -4,6 +4,6 @@ main: libmylib.so
 libmylib.so:
 	cc -shared -o libmylib.so mylib.c
 
-PHONY: clean
+.PHONY: clean
 clean:
 	rm -rf main libmylib.so
