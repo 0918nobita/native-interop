@@ -1,6 +1,6 @@
 # Native Interoperability
 
-Call a function (from a shared library, in C) from C# or OCaml
+Call a function (from a shared library, in C) from C#, F# or OCaml
 
 ## Build
 
@@ -14,6 +14,12 @@ make
 
 ```bash
 make run-csharp
+```
+
+### F#
+
+```bash
+make run-fsharp
 ```
 
 ### OCaml
