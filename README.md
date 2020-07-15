@@ -2,6 +2,10 @@
 
 Call a function (from a shared library, in C) from C#, F# or OCaml
 
+## Supported platform
+
+- Linux
+
 ## Requirements
 
 - .NET Core SDK 3.1 or later
