@@ -1,8 +1,29 @@
 # Native Interoperability
 
+Call a function (from a shared library, in C) from C# or OCaml
+
+## Build
+
 ```bash
-cd shared_library
 make
-cd ../csharp
-dotnet run # => Hello from shared library!, 0
+```
+
+## Run
+
+### C#
+
+```bash
+make run-csharp
+```
+
+### OCaml
+
+```bash
+make run-ocaml
+```
+
+## Clean
+
+```bash
+make clean
 ```
