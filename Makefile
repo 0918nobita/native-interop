@@ -27,6 +27,13 @@ cpp: $(CPP_EXE)
 rust: $(SHARED_LIBRARY)
 	cd rust && cargo build
 
+.PHONY: ocaml
+ocaml: $(OCAML_EXE)
+
+.PHONY: haskell
+haskell: $(SHARED_LIBRARY)
+	cd haskell && stack build
+
 .PHONY: java
 java: $(SHARED_LIBRARY)
 	cd java && ./gradlew build
@@ -36,9 +43,6 @@ csharp: $(CSHARP_EXE)
 
 .PHONY: fsharp
 fsharp: $(FSHARP_EXE)
-
-.PHONY: ocaml
-ocaml: $(OCAML_EXE)
 
 $(SHARED_LIBRARY):
 	cd shared_library && $(MAKE) libmylib.so
@@ -66,6 +70,7 @@ clean:
 	$(MAKE) -C fsharp clean
 	cd rust && cargo clean
 	rm -rf cpp/build
+	rm -rf haskell/.stack-work
 
 .PHONY: run-c
 run-c:
@@ -75,10 +80,6 @@ run-c:
 run-cpp: $(CPP_EXE)
 	./cpp/build/main
 
-.PHONY: run-java
-run-java: $(SHARED_LIBRARY)
-	cd java && ./gradlew run
-
 .PHONY: run-rust
 run-rust: $(SHARED_LIBRARY)
 	cd rust && LD_LIBRARY_PATH=$LD_LIBRARY_PATH:../shared_library cargo run
@@ -86,6 +87,14 @@ run-rust: $(SHARED_LIBRARY)
 .PHONY: run-ocaml
 run-ocaml: $(OCAML_EXE)
 	cd ocaml && ./main
+
+.PHONY: run-haskell
+run-haskell: $(SHARED_LIBRARY)
+	cd haskell && LD_LIBRARY_PATH=$LD_LIBRARY_PATH:../shared_library stack run
+
+.PHONY: run-java
+run-java: $(SHARED_LIBRARY)
+	cd java && ./gradlew run
 
 .PHONY: run-csharp
 run-csharp: $(CSHARP_EXE)
