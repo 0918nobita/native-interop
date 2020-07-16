@@ -8,10 +8,11 @@ Call a function from a shared library written in C, from various languages
 
 ## Requirements
 
-- GCC or Clang
+- GCC or Clang (required for all of the following languages)
 
 | Language | Requirements |
 | :--- | :--- |
+| C++ | CMake |
 | C# / F# | .NET Core SDK 3.1 or later |
 | Java | JDK 14, Gradle |
 | OCaml | OCaml 4.08 or later |
@@ -26,6 +27,7 @@ Call a function from a shared library written in C, from various languages
 | All | `make` |
 | Dynamic link library | `make dylib` |
 | C (executable) | `make c-exe` |
+| C++ | `make cpp` |
 | Java | `make java` |
 | Rust | `make rust` |
 | OCaml | `make ocaml` |
@@ -37,6 +39,7 @@ Call a function from a shared library written in C, from various languages
 | Language | Run command |
 | :--- | :--- |
 | C | `make run-c` |
+| C++ | `make run-cpp` |
 | Java | `make run-java` |
 | Rust | `make run-rust` |
 | OCaml | `make run-ocaml` |
