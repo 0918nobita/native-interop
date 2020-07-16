@@ -12,7 +12,7 @@ Call a function from a shared library written in C, from various languages
 
 | Language | Requirements |
 | :--- | :--- |
-| C++ | CMake |
+| C (executable) / C++ | CMake 3.5 or later |
 | Rust | Cargo 1.43 or later |
 | OCaml | OCaml 4.08 or later |
 | Haskell | Stack 2.3 or later |

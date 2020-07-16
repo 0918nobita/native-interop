@@ -1,5 +1,5 @@
 SHARED_LIBRARY := shared_library/libmylib.so
-C_EXE := shared_library/main
+C_EXE := c/build/main
 CPP_EXE := cpp/build/main
 OCAML_EXE := ocaml/main
 CSHARP_EXE := csharp/bin/Debug/netcoreapp3.1/native-interop
@@ -12,7 +12,7 @@ TARGET_DEPS += $(OCAML_EXE)
 TARGET_DEPS += $(CSHARP_EXE)
 TARGET_DEPS += $(FSHARP_EXE)
 
-all: $(TARGET_DEPS) rust
+all: $(TARGET_DEPS) rust haskell java
 
 .PHONY: dylib
 dylib: $(SHARED_LIBRARY)
@@ -48,7 +48,7 @@ $(SHARED_LIBRARY):
 	cd shared_library && $(MAKE) libmylib.so
 
 $(C_EXE): $(SHARED_LIBRARY)
-	cd shared_library && $(MAKE) main
+	cd c && mkdir -p build && cd build && cmake .. && cmake --build .
 
 $(CPP_EXE): $(SHARED_LIBRARY)
 	cd cpp && mkdir -p build && cd build && cmake .. && cmake --build .
@@ -65,16 +65,18 @@ $(FSHARP_EXE): $(SHARED_LIBRARY)
 .PHONY: clean
 clean:
 	$(MAKE) -C shared_library clean
+	rm -rf c/build
+	rm -rf cpp/build
+	cd rust && cargo clean
 	$(MAKE) -C ocaml clean
+	rm -rf haskell/.stack-work
+	rm -rf java/.gradle java/build
 	$(MAKE) -C csharp clean
 	$(MAKE) -C fsharp clean
-	cd rust && cargo clean
-	rm -rf cpp/build
-	rm -rf haskell/.stack-work
 
 .PHONY: run-c
-run-c:
-	cd shared_library && ./main
+run-c: $(C_EXE)
+	cd c/build && ./main
 
 .PHONY: run-cpp
 run-cpp: $(CPP_EXE)
