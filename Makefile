@@ -19,7 +19,7 @@ dylib: $(SHARED_LIBRARY)
 c-exe: $(C_EXE)
 
 .PHONY: rust
-rust:
+rust: $(SHARED_LIBRARY)
 	cd rust && cargo build
 
 .PHONY: java
@@ -67,7 +67,7 @@ run-java: $(SHARED_LIBRARY)
 	cd java && ./gradlew run
 
 .PHONY: run-rust
-run-rust:
+run-rust: $(SHARED_LIBRARY)
 	cd rust && LD_LIBRARY_PATH=$LD_LIBRARY_PATH:../shared_library cargo run
 
 .PHONY: run-ocaml
@@ -81,6 +81,10 @@ run-csharp: $(CSHARP_EXE)
 .PHONY: run-fsharp
 run-fsharp: $(FSHARP_EXE)
 	cd fsharp && ./bin/Debug/netcoreapp3.1/native-interop
+
+.PHONY: run-python
+run-python: $(SHARED_LIBRARY)
+	python main.py
 
 .PHONY: run-racket
 run-racket: $(SHARED_LIBRARY)

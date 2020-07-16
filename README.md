@@ -16,6 +16,7 @@ Call a function from a shared library written in C, from various languages
 | Java | JDK 14, Gradle |
 | OCaml | OCaml 4.08 or later |
 | Rust | Cargo 1.43 or later |
+| Python | Python 3.8 or later |
 | Racket | Racket 7.2 or later |
 
 ## Build
@@ -41,6 +42,7 @@ Call a function from a shared library written in C, from various languages
 | OCaml | `make run-ocaml` |
 | C# | `make run-csharp` |
 | F# | `make run-fsharp` |
+| Python | `make run-python` |
 | Racket | `make run-racket` |
 
 ## Clean
