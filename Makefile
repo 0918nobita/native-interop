@@ -22,6 +22,10 @@ c-exe: $(C_EXE)
 rust:
 	cd rust && cargo build
 
+.PHONY: java
+java: $(SHARED_LIBRARY)
+	cd java && ./gradlew build
+
 .PHONY: csharp
 csharp: $(CSHARP_EXE)
 
@@ -57,6 +61,10 @@ clean:
 .PHONY: run-c
 run-c:
 	cd shared_library && ./main
+
+.PHONY: run-java
+run-java: $(SHARED_LIBRARY)
+	cd java && ./gradlew run
 
 .PHONY: run-rust
 run-rust:
