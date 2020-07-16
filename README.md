@@ -9,12 +9,14 @@ Call a function from a shared library written in C, from various languages
 ## Requirements
 
 - GCC or Clang
-- .NET Core SDK 3.1 or later
-- Gradle
-- JDK 14
-- OCaml 4.08 or later
-- Rust
-- Racket 7.2 or later
+
+| Language | Requirements |
+| :--- | :--- |
+| C# / F# | .NET Core SDK 3.1 or later |
+| Java | JDK 14, Gradle |
+| OCaml | OCaml 4.08 or later |
+| Rust | Cargo 1.43 or later |
+| Racket | Racket 7.2 or later |
 
 ## Build
 
