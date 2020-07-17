@@ -1,0 +1,3 @@
+headers = ../shared_library/mylib.h
+compilerOpts = -D_POSIX_SOURCE
+linkerOpts.linux = -L../shared_library -lmylib

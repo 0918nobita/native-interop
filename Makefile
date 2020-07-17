@@ -2,6 +2,7 @@ SHARED_LIBRARY := shared_library/libmylib.so
 C_EXE := c/build/main
 CPP_EXE := cpp/build/main
 OCAML_EXE := ocaml/main
+KT_EXE := kotlin/main.kexe
 CSHARP_EXE := csharp/bin/Debug/netcoreapp3.1/native-interop
 FSHARP_EXE := fsharp/bin/Debug/netcoreapp3.1/native-interop
 
@@ -9,6 +10,7 @@ TARGET_DEPS := $(SHARED_LIBRARY)
 TARGET_DEPS += $(C_EXE)
 TARGET_DEPS += $(CPP_EXE)
 TARGET_DEPS += $(OCAML_EXE)
+TARGET_DEPS += $(KT_EXE)
 TARGET_DEPS += $(CSHARP_EXE)
 TARGET_DEPS += $(FSHARP_EXE)
 
@@ -34,6 +36,9 @@ ocaml: $(OCAML_EXE)
 haskell: $(SHARED_LIBRARY)
 	cd haskell && stack build
 
+.PHONY: kotlin
+kotlin: $(KT_EXE)
+
 .PHONY: java
 java: $(SHARED_LIBRARY)
 	cd java && ./gradlew build
@@ -56,6 +61,9 @@ $(CPP_EXE): $(SHARED_LIBRARY)
 $(OCAML_EXE): $(SHARED_LIBRARY)
 	cd ocaml && $(MAKE)
 
+$(KT_EXE): $(SHARED_LIBRARY)
+	cd kotlin && $(MAKE)
+
 $(CSHARP_EXE): $(SHARED_LIBRARY)
 	cd csharp && $(MAKE)
 
@@ -70,6 +78,7 @@ clean:
 	cd rust && cargo clean
 	$(MAKE) -C ocaml clean
 	rm -rf haskell/.stack-work
+	$(MAKE) -C kotlin clean
 	rm -rf java/.gradle java/build
 	$(MAKE) -C csharp clean
 	$(MAKE) -C fsharp clean
@@ -93,6 +102,10 @@ run-ocaml: $(OCAML_EXE)
 .PHONY: run-haskell
 run-haskell: $(SHARED_LIBRARY)
 	cd haskell && LD_LIBRARY_PATH=$LD_LIBRARY_PATH:../shared_library stack run
+
+.PHONY: run-kotlin
+run-kotlin: $(KT_EXE)
+	cd kotlin && LD_LIBRARY_PATH=$LD_LIBRARY_PATH:../shared_library ./main.kexe
 
 .PHONY: run-java
 run-java: $(SHARED_LIBRARY)
