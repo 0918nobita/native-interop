@@ -1,0 +1,4 @@
+[tasks.run-py]
+description = "Run python script"
+command = "python"
+args = ["main.py"]
