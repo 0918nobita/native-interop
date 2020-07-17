@@ -16,6 +16,7 @@ Call a function from a shared library written in C, from various languages
 | Rust | Cargo 1.43 or later |
 | OCaml | OCaml 4.08 or later |
 | Haskell | Stack 2.3 or later |
+| Kotlin/Native | kotlin-native-linux 1.3.72 |
 | Java | JDK 14 |
 | C# / F# | .NET Core SDK 3.1 or later |
 | Python | Python 3.8 or later |
@@ -32,6 +33,7 @@ Call a function from a shared library written in C, from various languages
 | Rust | `make rust` |
 | OCaml | `make ocaml` |
 | Haskell | `make haskell` |
+| Kotlin/Native | `make kotlin` |
 | Java | `make java` |
 | C# | `make csharp` |
 | F# | `make fsharp` |
@@ -45,6 +47,7 @@ Call a function from a shared library written in C, from various languages
 | Rust | `make run-rust` |
 | OCaml | `make run-ocaml` |
 | Haskell | `make run-haskell` |
+| Kotlin/Native | `make run-kotlin` |
 | Java | `make run-java` |
 | C# | `make run-csharp` |
 | F# | `make run-fsharp` |
