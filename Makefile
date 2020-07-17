@@ -118,11 +118,3 @@ run-csharp: $(CSHARP_EXE)
 .PHONY: run-fsharp
 run-fsharp: $(FSHARP_EXE)
 	cd fsharp && ./bin/Debug/netcoreapp3.1/native-interop
-
-.PHONY: run-python
-run-python: $(SHARED_LIBRARY)
-	python main.py
-
-.PHONY: run-racket
-run-racket: $(SHARED_LIBRARY)
-	racket main.rkt
