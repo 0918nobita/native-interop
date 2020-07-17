@@ -1,5 +1,7 @@
 # Native Interoperability
 
+![Build](https://github.com/0918nobita/native-interop/workflows/Build/badge.svg)
+
 Call a function from a shared library written in C, from various languages
 
 ## Supported platform
