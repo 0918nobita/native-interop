@@ -7,7 +7,7 @@ indent_size = 4
 indent_style = space
 insert_final_newline = true
 
-[*.{cabal,csproj,fsproj,yaml,rkt}]
+[*.{cabal,csproj,fsproj,yaml,yml,rkt}]
 indent_size = 2
 
 [Makefile]
