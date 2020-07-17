@@ -2,3 +2,8 @@
 description = "Run python script"
 command = "python"
 args = ["main.py"]
+
+[tasks.run-rkt]
+description = "Run racket script"
+command = "racket"
+args = ["main.rkt"]
