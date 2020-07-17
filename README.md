@@ -53,8 +53,8 @@ Call a function from a shared library written in C, from various languages
 | Java | `make run-java` |
 | C# | `make run-csharp` |
 | F# | `make run-fsharp` |
-| Python | `make run-python` |
-| Racket | `make run-racket` |
+| Python | `makers run-py` |
+| Racket | `makers run-rkt` |
 
 ## Clean
 
