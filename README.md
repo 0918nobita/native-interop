@@ -17,6 +17,7 @@ Call a function from a shared library written in C, from various languages
 | C (executable) / C++ | CMake 3.5 or later |
 | Rust | Cargo 1.43 or later |
 | OCaml | OCaml 4.08 or later |
+| Go | Go 1.14 or later |
 | Haskell | Stack 2.3 or later |
 | Kotlin/Native | kotlin-native-linux 1.3.72 |
 | Java | JDK 14 |
@@ -33,6 +34,7 @@ Call a function from a shared library written in C, from various languages
 | C (executable) | `make c-exe` |
 | C++ | `make cpp` |
 | Rust | `make rust` |
+| Go | `make go` |
 | OCaml | `make ocaml` |
 | Haskell | `make haskell` |
 | Kotlin/Native | `make kotlin` |
@@ -47,6 +49,7 @@ Call a function from a shared library written in C, from various languages
 | C | `make run-c` |
 | C++ | `make run-cpp` |
 | Rust | `make run-rust` |
+| Go | `make run-go` |
 | OCaml | `make run-ocaml` |
 | Haskell | `make run-haskell` |
 | Kotlin/Native | `make run-kotlin` |
