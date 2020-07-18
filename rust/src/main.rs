@@ -1,5 +1,5 @@
 #[link(name = "mylib")]
-extern {
+extern "C" {
     fn my_func() -> isize;
 }
 
