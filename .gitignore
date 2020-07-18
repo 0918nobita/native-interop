@@ -1,2 +1,4 @@
 .ionide
 .vscode
+.ninja_deps
+.ninja_log
