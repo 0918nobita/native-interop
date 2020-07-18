@@ -10,5 +10,8 @@ insert_final_newline = true
 [*.{cabal,csproj,fsproj,yaml,yml,rkt}]
 indent_size = 2
 
+[*.go]
+indent_style = tab
+
 [Makefile]
 indent_style = tab
