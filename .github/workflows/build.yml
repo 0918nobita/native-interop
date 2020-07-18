@@ -47,6 +47,20 @@ jobs:
           path: shared_library
       - run: make rust
 
+  go:
+    needs: dylib
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: dylib
+          path: shared_library
+      - uses: actions/setup-go@v2
+        with:
+          go-version: '^1.14.6'
+      - run: make go
+
   ocaml:
     needs: dylib
     runs-on: ubuntu-latest
