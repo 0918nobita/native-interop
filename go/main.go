@@ -5,5 +5,5 @@ package main
 import "C"
 
 func main() {
-    C.my_func()
+	C.my_func()
 }
