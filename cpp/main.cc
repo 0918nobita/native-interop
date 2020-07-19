@@ -1,7 +1,7 @@
 #include<iostream>
 
 extern "C" {
-    #include "../shared_library/mylib.h"
+    #include "../dylib/mylib.h"
 }
 
 int main() {

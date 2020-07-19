@@ -1,5 +1,5 @@
 #include<stdio.h>
-#include "../shared_library/mylib.h"
+#include "../dylib/mylib.h"
 
 int main(void) {
     int status = my_func();

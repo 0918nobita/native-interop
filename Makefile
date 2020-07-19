@@ -1,4 +1,4 @@
-SHARED_LIBRARY := shared_library/libmylib.so
+SHARED_LIBRARY := dylib/libmylib.so
 C_EXE := c/build/main
 CPP_EXE := cpp/build/main
 GO_EXE := go/main
@@ -55,7 +55,7 @@ csharp: $(CSHARP_EXE)
 fsharp: $(FSHARP_EXE)
 
 $(SHARED_LIBRARY):
-	cd shared_library && $(MAKE) libmylib.so
+	cd dylib && $(MAKE) libmylib.so
 
 $(C_EXE): $(SHARED_LIBRARY)
 	cd c && mkdir -p build && cd build && cmake .. && cmake --build .
@@ -80,7 +80,7 @@ $(FSHARP_EXE): $(SHARED_LIBRARY)
 
 .PHONY: clean
 clean:
-	$(MAKE) -C shared_library clean
+	$(MAKE) -C dylib clean
 	rm -rf c/build
 	rm -rf cpp/build
 	cd rust && cargo clean
@@ -102,11 +102,11 @@ run-cpp: $(CPP_EXE)
 
 .PHONY: run-rust
 run-rust: $(SHARED_LIBRARY)
-	cd rust && LD_LIBRARY_PATH=$LD_LIBRARY_PATH:../shared_library cargo run
+	cd rust && LD_LIBRARY_PATH=$LD_LIBRARY_PATH:../dylib cargo run
 
 .PHONY: run-go
 run-go: $(GO_EXE)
-	cd go && LD_LIBRARY_PATH=$LD_LIBRARY_PATH:../shared_library ./main
+	cd go && LD_LIBRARY_PATH=$LD_LIBRARY_PATH:../dylib ./main
 
 .PHONY: run-ocaml
 run-ocaml: $(OCAML_EXE)
@@ -114,11 +114,11 @@ run-ocaml: $(OCAML_EXE)
 
 .PHONY: run-haskell
 run-haskell: $(SHARED_LIBRARY)
-	cd haskell && LD_LIBRARY_PATH=$LD_LIBRARY_PATH:../shared_library stack run
+	cd haskell && LD_LIBRARY_PATH=$LD_LIBRARY_PATH:../dylib stack run
 
 .PHONY: run-kotlin
 run-kotlin: $(KT_EXE)
-	cd kotlin && LD_LIBRARY_PATH=$LD_LIBRARY_PATH:../shared_library ./main.kexe
+	cd kotlin && LD_LIBRARY_PATH=$LD_LIBRARY_PATH:../dylib ./main.kexe
 
 .PHONY: run-java
 run-java: $(SHARED_LIBRARY)

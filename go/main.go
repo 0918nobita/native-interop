@@ -1,7 +1,7 @@
 package main
 
-// #cgo LDFLAGS: -L../shared_library -lmylib
-// #include "../shared_library/mylib.h"
+// #cgo LDFLAGS: -L../dylib -lmylib
+// #include "../dylib/mylib.h"
 import "C"
 
 func main() {
