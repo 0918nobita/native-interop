@@ -1,5 +1,5 @@
 main:
-	ocamlopt -cclib ../dylib/libmylib.so -o main main.ml
+	ocamlopt -cclib ../build/dylib/libmylib.so -o main main.ml
 
 .PHONY: clean
 clean:

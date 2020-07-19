@@ -17,5 +17,5 @@ application {
 }
 
 tasks.withType(JavaExec::class) {
-    systemProperty("jna.library.path", file("../dylib").absolutePath)
+    systemProperty("jna.library.path", file("../build/dylib").absolutePath)
 }

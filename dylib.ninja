@@ -1,4 +1,0 @@
-rule compile
-    command = gcc -Wall -Wextra -shared -o $out $in
-
-build dylib/libmylib.so: compile dylib/mylib.c

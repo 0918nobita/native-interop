@@ -30,17 +30,15 @@ Call a function from a shared library written in C, from various languages
 | Target | Build command |
 | :--- | :--- |
 | All | `make` |
-| Dynamic link library | `make dylib` |
-| C (executable) | `make c-exe` |
-| C++ | `make cpp` |
-| Rust | `make rust` |
+| DLL, C (executable), C++  | `make dylib-c-cpp` |
+| Rust | `make rs` |
 | Go | `make go` |
-| OCaml | `make ocaml` |
-| Haskell | `make haskell` |
-| Kotlin/Native | `make kotlin` |
+| OCaml | `make ml` |
+| Haskell | `make hs` |
+| Kotlin/Native | `make kt` |
 | Java | `make java` |
-| C# | `make csharp` |
-| F# | `make fsharp` |
+| C# | `make cs` |
+| F# | `make fs` |
 
 ## Run
 
@@ -48,16 +46,16 @@ Call a function from a shared library written in C, from various languages
 | :--- | :--- |
 | C | `make run-c` |
 | C++ | `make run-cpp` |
-| Rust | `make run-rust` |
+| Rust | `make run-rs` |
 | Go | `make run-go` |
-| OCaml | `make run-ocaml` |
-| Haskell | `make run-haskell` |
-| Kotlin/Native | `make run-kotlin` |
+| OCaml | `make run-ml` |
+| Haskell | `make run-hs` |
+| Kotlin/Native | `make run-kt` |
 | Java | `make run-java` |
-| C# | `make run-csharp` |
-| F# | `make run-fsharp` |
-| Python | `python main.py` |
-| Racket | `racket main.rkt` |
+| C# | `make run-cs` |
+| F# | `make run-fs` |
+| Python | `make run-py` |
+| Racket | `make run-rkt` |
 
 ## Clean
 

@@ -1,6 +1,6 @@
 package main
 
-// #cgo LDFLAGS: -L../dylib -lmylib
+// #cgo LDFLAGS: -L../build/dylib -lmylib
 // #include "../dylib/mylib.h"
 import "C"
 
