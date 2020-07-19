@@ -1,3 +1,0 @@
-headers = ../dylib/mylib.h
-compilerOpts = -D_POSIX_SOURCE
-linkerOpts.linux = -L../build/dylib -lmylib

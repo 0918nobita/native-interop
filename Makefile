@@ -1,14 +1,12 @@
 DYLIB := build/dylib/libmylib.so
 GO_EXE := go/main
 OCAML_EXE := ocaml/main
-KT_EXE := kotlin/main.kexe
 CSHARP_EXE := csharp/bin/Debug/netcoreapp3.1/native-interop
 FSHARP_EXE := fsharp/bin/Debug/netcoreapp3.1/native-interop
 
 TARGET_DEPS := $(DYLIB)
 TARGET_DEPS += $(GO_EXE)
 TARGET_DEPS += $(OCAML_EXE)
-TARGET_DEPS += $(KT_EXE)
 TARGET_DEPS += $(CSHARP_EXE)
 TARGET_DEPS += $(FSHARP_EXE)
 
@@ -32,9 +30,6 @@ ml: $(OCAML_EXE)
 hs: $(DYLIB)
 	cd haskell && stack build
 
-.PHONY: kt
-kt: $(KT_EXE)
-
 .PHONY: java
 java: $(DYLIB)
 	cd java && ./gradlew build
@@ -54,9 +49,6 @@ $(GO_EXE): $(DYLIB) go/main.go
 $(OCAML_EXE): $(DYLIB)
 	cd ocaml && $(MAKE)
 
-$(KT_EXE): $(DYLIB)
-	cd kotlin && $(MAKE)
-
 $(CSHARP_EXE): $(DYLIB)
 	cd csharp && $(MAKE)
 
@@ -70,7 +62,6 @@ clean:
 	rm -f go/main
 	$(MAKE) -C ocaml clean
 	rm -rf haskell/.stack-work
-	$(MAKE) -C kotlin clean
 	rm -rf java/.gradle java/build
 	$(MAKE) -C csharp clean
 	$(MAKE) -C fsharp clean
@@ -98,10 +89,6 @@ run-ml: $(OCAML_EXE)
 .PHONY: run-hs
 run-hs: $(DYLIB)
 	cd haskell && LD_LIBRARY_PATH=$LD_LIBRARY_PATH:../build/dylib stack run
-
-.PHONY: run-kt
-run-kt: $(KT_EXE)
-	cd kotlin && LD_LIBRARY_PATH=$LD_LIBRARY_PATH:../build/dylib ./main.kexe
 
 .PHONY: run-java
 run-java: $(DYLIB)
