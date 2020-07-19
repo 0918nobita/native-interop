@@ -8,11 +8,9 @@ Call a function from a shared library written in C, from various languages
 
 ## Requirements
 
-- GCC or Clang (required for all of the following languages)
-
 | Language | Requirements |
 | :--- | :--- |
-| C (executable) / C++ | CMake 3.5 or later |
+| All | CMake 3.5 or later |
 | Rust | Cargo 1.43 or later |
 | OCaml | OCaml 4.08 or later |
 | Go | Go 1.14 or later |
@@ -27,7 +25,7 @@ Call a function from a shared library written in C, from various languages
 | Target | Build command |
 | :--- | :--- |
 | All | `make` |
-| DLL, C (executable), C++  | `make dylib-c-cpp` |
+| DLL, C, C++  | `make dylib-c-cpp` |
 | Rust | `make rs` |
 | Go | `make go` |
 | OCaml | `make ml` |
