@@ -17,7 +17,6 @@ Call a function from a shared library written in C, from various languages
 | OCaml | OCaml 4.08 or later |
 | Go | Go 1.14 or later |
 | Haskell | Stack 2.3 or later |
-| Kotlin/Native | kotlin-native-linux 1.3.72 |
 | Java | JDK 14 |
 | C# / F# | .NET Core SDK 3.1 or later |
 | Python | Python 3.8 or later |
@@ -33,7 +32,6 @@ Call a function from a shared library written in C, from various languages
 | Go | `make go` |
 | OCaml | `make ml` |
 | Haskell | `make hs` |
-| Kotlin/Native | `make kt` |
 | Java | `make java` |
 | C# | `make cs` |
 | F# | `make fs` |
@@ -48,7 +46,6 @@ Call a function from a shared library written in C, from various languages
 | Go | `make run-go` |
 | OCaml | `make run-ml` |
 | Haskell | `make run-hs` |
-| Kotlin/Native | `make run-kt` |
 | Java | `make run-java` |
 | C# | `make run-cs` |
 | F# | `make run-fs` |
