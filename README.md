@@ -10,7 +10,7 @@ Call a function from a shared library written in C, from various languages
 
 | Language | Requirements |
 | :--- | :--- |
-| All | CMake 3.5 or later |
+| All | CMake 3.5 or later, ninja-build 0.10 |
 | Rust | Cargo 1.43 or later |
 | OCaml | OCaml 4.08 or later |
 | Go | Go 1.14 or later |
