@@ -1,4 +1,6 @@
 DYLIB := build/dylib/libmylib.so
+C_EXE := build/c/main-c
+CPP_EXE := build/cpp/main-cpp
 GO_EXE := go/main
 OCAML_EXE := ocaml/main
 CSHARP_EXE := csharp/bin/Debug/netcoreapp3.1/native-interop
@@ -10,11 +12,12 @@ TARGET_DEPS += $(OCAML_EXE)
 TARGET_DEPS += $(CSHARP_EXE)
 TARGET_DEPS += $(FSHARP_EXE)
 
+# ---- Build -----
+
 all: $(TARGET_DEPS) rust haskell java
 
 .PHONY: dylib-c-cpp
-dylib-c-cpp:
-	mkdir -p build && cd build && cmake .. -G Ninja && ninja
+dylib-c-cpp: $(DYLIB)
 
 .PHONY: rs
 rs: $(DYLIB)
@@ -40,7 +43,7 @@ cs: $(CSHARP_EXE)
 .PHONY: fs
 fs: $(FSHARP_EXE)
 
-$(DYLIB):
+$(DYLIB) $(C_EXE) $(CPP_EXE):
 	mkdir -p build && cd build && cmake .. -G Ninja && ninja
 
 $(GO_EXE): $(DYLIB) go/main.go
@@ -55,6 +58,8 @@ $(CSHARP_EXE): $(DYLIB)
 $(FSHARP_EXE): $(DYLIB)
 	cd fsharp && $(MAKE)
 
+# ----- Clean -----
+
 .PHONY: clean
 clean:
 	rm -rf build
@@ -66,12 +71,14 @@ clean:
 	$(MAKE) -C csharp clean
 	$(MAKE) -C fsharp clean
 
+# ----- Run -----
+
 .PHONY: run-c
-run-c: dylib-c-cpp
+run-c: $(C_EXE)
 	./build/c/main-c
 
 .PHONY: run-cpp
-run-cpp: dylib-c-cpp
+run-cpp: $(CPP_EXE)
 	./build/cpp/main-cpp
 
 .PHONY: run-rs
