@@ -58,9 +58,9 @@ packages:
 # arch: i386
 # arch: x86_64
 
-extra-include-dirs: ["../dylib"]
+extra-include-dirs: ["../build/dylib"]
 
-extra-lib-dirs: ["../dylib"]
+extra-lib-dirs: ["../build/dylib"]
 
 # Allow a newer minor version of GHC than the snapshot specifies
 # compiler-check: newer-minor
