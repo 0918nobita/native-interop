@@ -12,7 +12,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: dylib
-          path: shared_library/libmylib.so
+          path: dylib/libmylib.so
 
   c:
     needs: dylib
@@ -22,7 +22,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: dylib
-          path: shared_library
+          path: dylib
       - run: make c-exe
 
   cpp:
@@ -33,7 +33,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: dylib
-          path: shared_library
+          path: dylib
       - run: make cpp
 
   rust:
@@ -44,7 +44,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: dylib
-          path: shared_library
+          path: dylib
       - run: make rust
 
   go:
@@ -55,7 +55,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: dylib
-          path: shared_library
+          path: dylib
       - uses: actions/setup-go@v2
         with:
           go-version: '^1.14.6'
@@ -69,7 +69,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: dylib
-          path: shared_library
+          path: dylib
       - uses: avsm/setup-ocaml@v1
         with:
           ocaml-version: 4.08.1
@@ -83,7 +83,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: dylib
-          path: shared_library
+          path: dylib
       - run: make haskell
 
   kotlin:
@@ -94,7 +94,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: dylib
-          path: shared_library
+          path: dylib
       - run: wget https://github.com/JetBrains/kotlin/releases/download/v1.3.72/kotlin-native-linux-1.3.72.tar.gz
       - run: tar zxvf kotlin-native-linux-1.3.72.tar.gz
       - run: sudo mkdir -p /usr/local/kotlin-native
@@ -102,7 +102,7 @@ jobs:
       - name: make kotlin
         run: |
           export PATH="$PATH:/usr/local/kotlin-native/bin"
-          cinterop -def MyLib.def -o myLib -compiler-option -I../shared_library
+          cinterop -def MyLib.def -o myLib -compiler-option -I../dylib
           kotlinc-native -l myLib -o main Main.kt
         working-directory: ./kotlin
 
@@ -114,7 +114,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: dylib
-          path: shared_library
+          path: dylib
       - run: make java
 
   csharp:
@@ -125,7 +125,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: dylib
-          path: shared_library
+          path: dylib
       - run: make csharp
 
   fsharp:
@@ -136,5 +136,5 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: dylib
-          path: shared_library
+          path: dylib
       - run: make fsharp

@@ -1,4 +1,4 @@
 rule compile
     command = gcc -Wall -Wextra -shared -o $out $in
 
-build shared_library/libmylib.so: compile shared_library/mylib.c
+build dylib/libmylib.so: compile dylib/mylib.c

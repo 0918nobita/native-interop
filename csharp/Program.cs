@@ -5,7 +5,7 @@ namespace native_interop
 {
     class Program
     {
-        [DllImport("../shared_library/libmylib.so")]
+        [DllImport("../dylib/libmylib.so")]
         private static extern int my_func();
 
         static void Main(string[] args)

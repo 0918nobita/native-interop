@@ -1,7 +1,7 @@
 ﻿open System.Runtime.InteropServices
 
 module private Native =
-    [<DllImport("../shared_library/libmylib.so", EntryPoint = "my_func")>]
+    [<DllImport("../dylib/libmylib.so", EntryPoint = "my_func")>]
     extern int myFunc()
 
 [<EntryPoint>]

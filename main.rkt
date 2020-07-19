@@ -4,7 +4,7 @@
          ffi/unsafe/define)
 
 (define-ffi-definer define-mylib
-  (ffi-lib "./shared_library/libmylib.so"))
+  (ffi-lib "./dylib/libmylib.so"))
 
 (define-mylib my_func (_fun -> _int))
 
